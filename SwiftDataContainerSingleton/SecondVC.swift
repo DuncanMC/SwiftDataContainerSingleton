@@ -14,28 +14,34 @@ class SecondVC: UIViewController, UITextFieldDelegate
 {
   @IBOutlet weak var textField: UITextField!
   
+  //-------------------------------------------------------------------------------------------------------
+  // MARK: - UIViewController methods -
+  //-------------------------------------------------------------------------------------------------------
+  
   override func viewWillAppear(animated: Bool)
   {
-    textField.text =  "\(DataContainerSingleton.sharedDataContainer.someInt ?? 0)"
+    //Load the value "someInt" from our shared ata container singleton
+    let value = DataContainerSingleton.sharedDataContainer.someInt ?? 0
+    
+    //Install the value into the text field.
+    textField.text =  "\(value)"
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    textField.text =  "\(DataContainerSingleton.sharedDataContainer.someInt ?? 0)"
-  }
+  //-------------------------------------------------------------------------------------------------------
+  // MARK: - UITextFieldDelegate methods -
+  //-------------------------------------------------------------------------------------------------------
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-  func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+  func textFieldShouldReturn(textField: UITextField) -> Bool
   {
     textField.resignFirstResponder()
-    return true;
+    return true
   }
+  
+  //-------------------------------------------------------------------------------------------------------
   
   func textFieldShouldEndEditing(textField: UITextField) -> Bool
   {
+    //Save the changed value back to our data container singl
     DataContainerSingleton.sharedDataContainer.someInt = textField.text!.toInt()
     return true
   }
