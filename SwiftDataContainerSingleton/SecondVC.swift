@@ -1,25 +1,26 @@
 //
-//  ViewController.swift
+//  SecondVC.swift
 //  SwiftDataContainerSingleton
 //
 //  Created by Duncan Champney on 4/19/15.
 //  Copyright (c) 2015 Duncan Champney. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate
+class SecondVC: UIViewController, UITextFieldDelegate
+
 {
-  
   @IBOutlet weak var textField: UITextField!
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  override func viewWillAppear(animated: Bool)
+  {
     textField.text =  "\(DataContainerSingleton.sharedDataContainer.someInt ?? 0)"
   }
 
-  override func viewWillAppear(animated: Bool)
-  {
+  override func viewDidLoad() {
+    super.viewDidLoad()
     textField.text =  "\(DataContainerSingleton.sharedDataContainer.someInt ?? 0)"
   }
   
@@ -39,4 +40,3 @@ class ViewController: UIViewController, UITextFieldDelegate
     return true
   }
 }
-
