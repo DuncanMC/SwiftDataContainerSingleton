@@ -40,6 +40,7 @@
 		AE0A794D1AE404C900E0D1E2 /* SwiftDataContainerSingletonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataContainerSingletonTests.swift; sourceTree = "<group>"; };
 		AE0A79571AE404DA00E0D1E2 /* DataContainerSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContainerSingleton.swift; sourceTree = "<group>"; };
 		AE3843BD1AE40D2E002CC4C1 /* SecondVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		AE3843BF1AE43AF7002CC4C1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +82,7 @@
 		AE0A79341AE404C900E0D1E2 /* SwiftDataContainerSingleton */ = {
 			isa = PBXGroup;
 			children = (
+				AE3843BF1AE43AF7002CC4C1 /* README.md */,
 				AE0A79371AE404C900E0D1E2 /* AppDelegate.swift */,
 				AE0A79571AE404DA00E0D1E2 /* DataContainerSingleton.swift */,
 				AE0A79391AE404C900E0D1E2 /* ViewController.swift */,

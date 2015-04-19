@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate
   
   func textFieldShouldEndEditing(textField: UITextField) -> Bool
   {
-    //Save the changed value back to our data container singl
+    //Save the changed value back to our data container singleton
     DataContainerSingleton.sharedDataContainer.someInt = textField.text!.toInt()
     return true
   }
