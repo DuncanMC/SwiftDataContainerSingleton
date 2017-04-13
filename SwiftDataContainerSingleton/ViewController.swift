@@ -17,7 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate
   // MARK: - UIViewController methods -
   //-------------------------------------------------------------------------------------------------------
   
-  override func viewWillAppear(animated: Bool)
+  override func viewWillAppear(_ animated: Bool)
   {
     //Load the value "someInt" from our shared ata container singleton
     let value = DataContainerSingleton.sharedDataContainer.someInt ?? 0
@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate
   // MARK: - UITextFieldDelegate methods -
   //-------------------------------------------------------------------------------------------------------
   
-  func textFieldShouldReturn(textField: UITextField) -> Bool
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool
   {
     textField.resignFirstResponder()
     return true
@@ -39,10 +39,10 @@ class ViewController: UIViewController, UITextFieldDelegate
   
   //-------------------------------------------------------------------------------------------------------
   
-  func textFieldShouldEndEditing(textField: UITextField) -> Bool
+  func textFieldShouldEndEditing(_ textField: UITextField) -> Bool
   {
     //Save the changed value back to our data container singleton
-    DataContainerSingleton.sharedDataContainer.someInt = textField.text!.toInt()
+    DataContainerSingleton.sharedDataContainer.someInt = Int(textField.text!)
     return true
   }
 
