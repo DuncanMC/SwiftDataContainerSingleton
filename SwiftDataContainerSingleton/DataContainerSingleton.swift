@@ -45,30 +45,30 @@ class DataContainerSingleton
   
   init()
   {
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     //-----------------------------------------------------------------------------
     //This code reads the singleton's properties from NSUserDefaults.
     //edit this code to load your custom properties
-    someString = defaults.objectForKey(DefaultsKeys.someString) as! String?
-    someOtherString = defaults.objectForKey(DefaultsKeys.someOtherString) as! String?
-    someInt = defaults.objectForKey(DefaultsKeys.someInt) as! Int?
+    someString = defaults.object(forKey: DefaultsKeys.someString) as! String?
+    someOtherString = defaults.object(forKey: DefaultsKeys.someOtherString) as! String?
+    someInt = defaults.object(forKey: DefaultsKeys.someInt) as! Int?
     //-----------------------------------------------------------------------------
     
     //Add an obsever for the UIApplicationDidEnterBackgroundNotification.
     //When the app goes to the background, the code block saves our properties to NSUserDefaults.
-    goToBackgroundObserver = NSNotificationCenter.defaultCenter().addObserverForName(
-      UIApplicationDidEnterBackgroundNotification,
+    goToBackgroundObserver = NotificationCenter.default.addObserver(
+      forName: NSNotification.Name.UIApplicationDidEnterBackground,
       object: nil,
       queue: nil)
       {
-        (note: NSNotification!) -> Void in
-        let defaults = NSUserDefaults.standardUserDefaults()
+        (note: Notification!) -> Void in
+        let defaults = UserDefaults.standard
         //-----------------------------------------------------------------------------
         //This code saves the singleton's properties to NSUserDefaults.
         //edit this code to save your custom properties
-        defaults.setObject( self.someString, forKey: DefaultsKeys.someString)
-        defaults.setObject( self.someOtherString, forKey: DefaultsKeys.someOtherString)
-        defaults.setObject( self.someInt, forKey: DefaultsKeys.someInt)
+        defaults.set( self.someString, forKey: DefaultsKeys.someString)
+        defaults.set( self.someOtherString, forKey: DefaultsKeys.someOtherString)
+        defaults.set( self.someInt, forKey: DefaultsKeys.someInt)
         //-----------------------------------------------------------------------------
 
         //Tell NSUserDefaults to save to disk now.
